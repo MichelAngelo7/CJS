@@ -34,5 +34,11 @@ function addRow(){
     row.insertCell(7).innerHTML = interestPerMonthCalc
     row.insertCell(8).innerHTML = interest
     row.insertCell(9).innerHTML = finalValue
-
+    row.insertCell(10).innerHTML= '<input type="button" value="Deletar" onClick="deleteRow(this)" class="btn btn-danger">'
     }
+
+function deleteRow(obj){
+    let index = obj.parentNode.parentNode.rowIndex
+    let table = document.getElementById("dynamicalTable")
+    table.deleteRow(index)
+}
