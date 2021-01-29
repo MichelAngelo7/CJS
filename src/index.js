@@ -26,14 +26,14 @@ function addRow(){
     
     row.insertCell(0).innerHTML = relativeTo
     row.insertCell(1).innerHTML = startDate
-    row.insertCell(2).innerHTML = debit
-    row.insertCell(3).innerHTML = paid
-    row.insertCell(4).innerHTML = difference    
+    row.insertCell(2).innerHTML = "R$   " + (parseFloat(debit).toFixed(2)).replace('.',',')
+    row.insertCell(3).innerHTML = "R$   " + (parseFloat(paid).toFixed(2)).replace('.',',') 
+    row.insertCell(4).innerHTML = "R$   " + (parseFloat(difference).toFixed(2)).replace('.',',')    
     row.insertCell(5).innerHTML = monetaryCorrection
-    row.insertCell(6).innerHTML = correctedValue
+    row.insertCell(6).innerHTML = "R$   " + (parseFloat(correctedValue).toFixed(2)).replace('.',',')
     row.insertCell(7).innerHTML = interestPerMonthCalc
-    row.insertCell(8).innerHTML = interest
-    row.insertCell(9).innerHTML = finalValue
+    row.insertCell(8).innerHTML = "R$   " + (parseFloat(interest).toFixed(2)).replace('.',',')
+    row.insertCell(9).innerHTML = "R$   " + (parseFloat(finalValue).toFixed(2)).replace('.',',')
     row.insertCell(10).innerHTML= '<input type="button" value="Deletar" onClick="deleteRow(this)" class="btn btn-danger">'
     }
 
