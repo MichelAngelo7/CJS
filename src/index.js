@@ -42,3 +42,36 @@ function deleteRow(obj){
     let table = document.getElementById("dynamicalTable")
     table.deleteRow(index)
 }
+
+
+function exportTableToExcel(tableID, filename=''){
+    let downloadLink;
+    let dataType = 'application/vnd.ms-excel'
+    let tableSelect = document.getElementById(tableID)
+    let tableHTML = tableSelect.outerHTML.replace(/ /g, '%20')
+
+    filename=filename?filename+'.xls':'excel_data.xls'
+
+    downloadLink =  document.createElement("a")
+
+    document.body.appendChild(downloadLink)
+
+    if(navigator.msSaveOrOpenBloob){
+        let blob = new Blob(['\ufeff', tableHTML],{
+            type: dataType
+        })
+        navigator.msSaveOrOpenBlob(blob, filename)
+    }else{
+        downloadLink.href = 'data:' + dataType + ', '+ tableHTML
+   
+
+    downloadLink.download = filename
+
+    downloadLink.click()
+
+    }
+    
+}
+
+
+
