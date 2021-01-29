@@ -13,11 +13,11 @@ function addRow(){
     let debit = document.getElementById("debit").value
     let paid = document.getElementById("paid").value
     let difference = debit - paid
-    let monetaryCorrection = 1.563203
+    let monetaryCorrection = 1.0673379 
     let correctedValue = difference * monetaryCorrection
     let interestPerMonthCalc = interestPerMonth(startDate)
-    let interest = correctedValue * interestPerMonthCalc
-    let finalValue = interestPerMonthCalc + interest
+    let interest = correctedValue * (interestPerMonthCalc)/100
+    let finalValue = correctedValue + interest
 
     table = document.getElementById("dynamicalTable")
 
