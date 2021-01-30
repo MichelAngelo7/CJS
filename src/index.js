@@ -7,11 +7,24 @@ function interestPerMonth(startDate){
     return month
 }
 
+function formatDateToPtBr(startDate){
+    let data = new Date(startDate)
+        day = data.getDate().toString().padStart(2, '0')
+        month = (data.getMonth()+1).toString().padStart(2, '0')
+        year = data.getFullYear()
+
+    return  month + "/" + year 
+
+}
+
 function addRow(){
     let relativeTo = document.getElementById("relativeTo").value
     let startDate = document.getElementById("startDate").value
     let debit = document.getElementById("debit").value
+    debit = parseFloat(debit.toString().replace(',','.'))
     let paid = document.getElementById("paid").value
+    paid = paid ? paid : 0
+    paid = parseFloat(paid.toString().replace(',','.'))
     let difference = debit - paid
     let monetaryCorrection = 1.0673379 
     let correctedValue = difference * monetaryCorrection
@@ -25,7 +38,7 @@ function addRow(){
     let row = table.insertRow(rowCount)
     
     row.insertCell(0).innerHTML = relativeTo
-    row.insertCell(1).innerHTML = startDate
+    row.insertCell(1).innerHTML = formatDateToPtBr(startDate) 
     row.insertCell(2).innerHTML = "R$   " + (parseFloat(debit).toFixed(2)).replace('.',',')
     row.insertCell(3).innerHTML = "R$   " + (parseFloat(paid).toFixed(2)).replace('.',',') 
     row.insertCell(4).innerHTML = "R$   " + (parseFloat(difference).toFixed(2)).replace('.',',')    
@@ -50,7 +63,7 @@ function exportTableToExcel(tableID, filename=''){
     let tableSelect = document.getElementById(tableID)
     let tableHTML = tableSelect.outerHTML.replace(/ /g, '%20')
 
-    filename=filename?filename+'.xls':'excel_data.xls'
+    filename = filename ? filename + '.xls' : 'excel_data.xls'
 
     downloadLink =  document.createElement("a")
 
