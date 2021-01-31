@@ -1,6 +1,33 @@
-    .restatement {
-    background-color: #c5e6c4;
+html {
+    font-family: 'Raleway', sans-serif;
+}
+
+body  {
+    background-color: #b07899;
+}
+
+h1 {
+    color: #E4D1DC;
+    text-align: center;
+}
+
+p{
+    color: #E4D1DC;
+    text-align: center;
+}
+
+span {
+    color: #E4D1DC;
+}
+
+.restatement {
+    background-color: #77335A;
+    color: #E4D1DC;
     padding-bottom: 20px;
+}
+
+#btn-add {
+    background-color: #E4D1DC;
 }
 
 table{
@@ -9,8 +36,8 @@ table{
 }
 
 th{
-    color: #D5DDE5;
-    background:#1B1E24;
+    color: #77335A;
+    background:#E4D1DC;
     border-bottom: 4px solid #9ea7af;
     border-right: 1px solid #343a45;
     font-size: 15px;
@@ -37,7 +64,7 @@ tr{
     font-size: 16px;
     font-weight:normal;
     text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-    
+
 }
 
 tr:hover td{
@@ -52,7 +79,7 @@ tr:first-child{
 
 tr:nth-child(2){
     display: none;
-    
+
 }
 
 
@@ -76,5 +103,13 @@ td{
     font-size: 18;
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #c1c3d1; 
-    
+
+}
+
+
+#btn-xls{
+    background-color: #7db37B;
+    color: ABD1A9;
+    margin-left: 65px;
+
 }
